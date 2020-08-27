@@ -1,6 +1,7 @@
 {
-  "name": "netodev/php-lambda-router",
+  "name": "netolabs/php-lambda-router",
   "description": "Route requests to controller actions using the AWS Lambda handler",
+  "license": "MIT",
   "type": "library",
   "authors": [
     {
