@@ -17,7 +17,7 @@ final class AbstractControllerTest extends TestCase
     /** @var SimpleContainer */
     private $container;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->controller = new ContainerAwareController();
         $this->container = new SimpleContainer();

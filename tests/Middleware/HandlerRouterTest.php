@@ -2,11 +2,11 @@
 
 namespace Neto\Lambda\Test\Middleware;
 
+use Neto\Container\SimpleContainer;
 use Neto\Lambda\Test\Fixture\StandaloneController;
 use PHPUnit\Framework\TestCase;
 use Neto\Lambda\Middleware\HandlerRouter;
 use Phake;
-use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
@@ -23,7 +23,7 @@ final class HandlerRouterTest extends TestCase
     /** @var RequestHandlerInterface */
     private $handler;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->router = new HandlerRouter('standalone.bar', '\\Neto\\Lambda\\Test\\Fixture\\');
         $this->request = Phake::mock(ServerRequestInterface::class);
@@ -66,7 +66,7 @@ final class HandlerRouterTest extends TestCase
     public function testInstantiatingControllerFromContainer()
     {
         $className = $this->router->getControllerClass();
-        $container = Phake::mock(ContainerInterface::class);
+        $container = Phake::mock(SimpleContainer::class);
         $controller = Phake::mock(StandaloneController::class);
         Phake::when($container)->has($className)->thenReturn(true);
         Phake::when($container)->get($className)->thenReturn($controller);
