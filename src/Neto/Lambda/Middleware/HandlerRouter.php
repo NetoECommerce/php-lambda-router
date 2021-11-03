@@ -57,7 +57,7 @@ class HandlerRouter implements MiddlewareInterface, ContainerAwareInterface
      *
      * @throws \RuntimeException if $handlerName is not in the correct format
      */
-    public function __construct($handlerName, $namespace = '\\App\\Controller\\')
+    public function __construct(string $handlerName, $namespace = '\\App\\Controller\\')
     {
         $this->handler = $handlerName;
         $this->namespace = $namespace;
